@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder holder) {
         mediaPlayer.setDisplay(holder);
+        mediaPlayer.start();
     }
 
     @Override
@@ -58,5 +59,15 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
     @Override
     public void surfaceDestroyed(@NonNull SurfaceHolder holder) {
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(mediaPlayer != null) {
+            mediaPlayer.pause();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }
