@@ -34,6 +34,14 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
                 mediaPlayer.start();
             }
         });
+        Button pause = findViewById(R.id.button_pause);
+        pause.setOnClickListener(view -> {
+            mediaPlayer.pause();
+        });
+        Button skip = findViewById(R.id.button_skip);
+        skip.setOnClickListener(view -> {
+            mediaPlayer.seekTo(mediaPlayer.getDuration()/2);
+        });
 
     }
 
